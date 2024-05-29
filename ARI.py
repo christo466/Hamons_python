@@ -45,7 +45,7 @@ match ARI:
         case 6:
             print("Fifth grade")
         case 7:
-            print("Sixth grade")
+            print("Sixth grade") 
         case 8:
             print("Seventh grade")
         case 9:
