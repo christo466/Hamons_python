@@ -61,4 +61,7 @@ match ARI:
         case 14:
             print("College")
         case _:
-            print("Above college")
+            if ARI< 1:
+                print("kindergarter")
+            else:
+                print("Above college")
