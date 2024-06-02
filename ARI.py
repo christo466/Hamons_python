@@ -60,8 +60,3 @@ match ARI:
             print("Twelfth grade")
         case 14:
             print("College")
-        case _:
-            if ARI< 1:
-                print("kindergarter")
-            else:
-                print("Above college")
