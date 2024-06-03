@@ -64,6 +64,7 @@ def compute_correlations(filename):
     event_correlations = {}
     for dictionary in journal:
         items = list(dictionary.items())
+        
         if items:  
             first_value = items[0][1]  # Extract the first value from the dictionary items
             for event in first_value: 
@@ -84,7 +85,6 @@ def diagnose(filename):
                and its correlation value.
     """
     correlations = compute_correlations(filename)
-    print(correlations)
     my_values = []
     for value in correlations:
         my_values.append(correlations[value])
