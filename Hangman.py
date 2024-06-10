@@ -100,14 +100,16 @@ def game_won(temporary_list_word):
     print("You have won the game")
     continue_playing()  # Ask the player if they want to continue playing
 
-def lost_game(chance):
+def lost_game(chance, word_list):
     """
     Handle the scenario when the player loses the game.
 
     Parameters:
     - chance: The number of remaining chances
     """
+    original_word = "".join(word_list) 
     if chance <= 0:
+        print(f"The word: {original_word}")
         print("You lost the game")
     print("Continue playing the game... yes or no")
     yes_or_no = input("> ")  # Get the player's input on whether to continue
@@ -140,7 +142,7 @@ def check_chance(chance, word_list, temporary_list):
     if chance > 0:
         getting_word(word_list, temporary_list, chance)  # Prompt the player to guess another letter
     else:
-        lost_game(chance)  # Handle the lost game scenario
+        lost_game(chance, word_list)  # Handle the lost game scenario
 
 def check_the_word(input_letter, word_list, temporary_list, chance):
     """
