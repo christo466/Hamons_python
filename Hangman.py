@@ -198,7 +198,6 @@ def gues_the_word(word):
     - word: The word the player is trying to guess
     """
     length_of_word = len(word)
-    print(word)  # For debugging purposes, print the word
     chance = 6  # Set the initial number of chances
     word_list = list(word.lower())  # Convert the word to a list of characters
     temporary_list = ["_"] * length_of_word  # Create a list of underscores representing the unguessed letters
