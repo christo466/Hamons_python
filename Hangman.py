@@ -157,26 +157,32 @@ def check_the_word(input_letter, word_list, temporary_list, chance):
     Returns:
     - updated temporary_list, updated chance, random_word, updated temporary_list_word
     """
-    length_of_word_list = len(word_list)
-    random_word = "".join(word_list)  
-    temporary_list_word = "".join(temporary_list)  
-
+    length_of_word_list = len(word_list) 
+    random_word = "".join(word_list)     
+    temporary_list_word = "".join(temporary_list) 
+    
+   
+    letter_found = False
+    
     if chance > 0:
         for i in range(length_of_word_list):
-            if (input_letter == word_list[i] and input_letter != temporary_list[i]):
-                temporary_list[i] = input_letter  
-                temporary_list_word = "".join(temporary_list)
-                if random_word == temporary_list_word:
-                    game_won(random_word)  
-                break
-            elif (input_letter not in word_list):
-                chance -= 1  
-                break
-            elif random_word.count(input_letter) == temporary_list_word.count(input_letter):
-                chance -= 1  
-                break
+            if input_letter == word_list[i]:
+                temporary_list[i] = input_letter 
+                letter_found = True
+        
+        
+        temporary_list_word = "".join(temporary_list)
+        
+        if letter_found:
+            
+            if random_word == temporary_list_word:
+                game_won(random_word)  
+        else:
+            
+            chance -= 1
 
     return temporary_list, chance, random_word, temporary_list_word
+
 
 def getting_word(word_list, temporary_list, chance):
     """
@@ -229,14 +235,15 @@ def Random_word(words_list):
     level = input("> Choose the level: Easy = 1,  Medium = 2, Hard = 3: ")  
     if level in ["1", "2", "3"]:
         if level == "1":
-            length_of_word = random.randint(1, 4)  
+            length_of_word = random.randint(1, 4)   
         elif level == "2":
             length_of_word = random.randint(5, 8)  
         elif level == "3":
             length_of_word = random.randint(9, 14)  
 
         filtered_words = [word for word in words_list if len(word) == length_of_word] 
-        random_word = random.choice(filtered_words)  
+        random_word = random.choice(filtered_words) 
+        print(random_word) 
         gues_the_word(random_word)  
     else:
         print("Give proper input")  
