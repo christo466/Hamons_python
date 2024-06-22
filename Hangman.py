@@ -163,8 +163,13 @@ def check_the_word(input_letter, word_list, temporary_list, chance):
     
    
     letter_found = False
+    try:
+        int_value = int(input_letter)
+    except:
+        pass
     
     if chance > 0:
+          
         for i in range(length_of_word_list):
             if input_letter == word_list[i]:
                 temporary_list[i] = input_letter 
@@ -177,9 +182,12 @@ def check_the_word(input_letter, word_list, temporary_list, chance):
             
             if random_word == temporary_list_word:
                 game_won(random_word)  
+        elif input_letter.isdigit():
+            print("enter proper input")
+         
         else:
-            
-            chance -= 1
+               
+               chance -= 1
 
     return temporary_list, chance, random_word, temporary_list_word
 
